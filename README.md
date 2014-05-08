@@ -1,4 +1,10 @@
-P2P-Botnet-Detection-Project
+SMADES
 ============================
 
-P2P Project repository
+Code repository for SMADES - Smart Malicious Activity Detector Employing Signal Processing Techniques
+
+### Contributors
+* Vansh Khurana
+* Pratik Narang
+* Chittaranjan Hota
+
