@@ -1,0 +1,1420 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     ConversationRelation-weka.filters.unsupervised.attribute.Remove-R1-5,7-12,16-26,30-32,35,37,39-57,59,61,63-81
+Instances:    352657
+Attributes:   15
+              FLOW_DURATION
+              BYTES_SENT_PER_SEC
+              BYTES_RECV_PER_SEC
+              MEDIAN_INTERARRIVAL_TIME
+              AVG_PAYLOAD_SIZE
+              AVG_PAYLOAD_SIZE_SENDING
+              AVG_PAYLOAD_SIZE_RECVING
+              COMPRESSION
+              PRIME_WAVE_MAGNITUDE_PAYLOAD
+              DFT_PAYLOAD_MAGNITUDE1
+              DFT_PAYLOAD_MAGNITUDE2
+              PRIME_WAVE_MAGNITUDE_IAT
+              DFT_INTERARRIVAL_TIME_MAGNITUDE1
+              DFT_INTERARRIVAL_TIME_MAGNITUDE2
+              LABEL
+Test mode:    split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+AVG_PAYLOAD_SIZE <= 42
+|   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 0.504985
+|   |   AVG_PAYLOAD_SIZE_RECVING <= 42.285714
+|   |   |   COMPRESSION <= 11.478892
+|   |   |   |   DFT_PAYLOAD_MAGNITUDE1 <= 25: STORM (26.0)
+|   |   |   |   DFT_PAYLOAD_MAGNITUDE1 > 25
+|   |   |   |   |   BYTES_RECV_PER_SEC <= 0.759182
+|   |   |   |   |   |   BYTES_SENT_PER_SEC <= 0.151922: CLEAN (189.0/2.0)
+|   |   |   |   |   |   BYTES_SENT_PER_SEC > 0.151922
+|   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 0.000815
+|   |   |   |   |   |   |   |   COMPRESSION <= 10.558999: CLEAN (19.0)
+|   |   |   |   |   |   |   |   COMPRESSION > 10.558999
+|   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC <= 0.07963: CLEAN (6.0/1.0)
+|   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC > 0.07963: WALEDAC (4.0)
+|   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 0.000815: WALEDAC (5.0)
+|   |   |   |   |   BYTES_RECV_PER_SEC > 0.759182
+|   |   |   |   |   |   COMPRESSION <= 8.671876: CLEAN (5.0)
+|   |   |   |   |   |   COMPRESSION > 8.671876: WALEDAC (80.0)
+|   |   |   COMPRESSION > 11.478892
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.000061
+|   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 <= 2.129893: WALEDAC (416.0/15.0)
+|   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 > 2.129893
+|   |   |   |   |   |   FLOW_DURATION <= 18.903069
+|   |   |   |   |   |   |   FLOW_DURATION <= 15.854802: STORM (13.0/2.0)
+|   |   |   |   |   |   |   FLOW_DURATION > 15.854802: WALEDAC (3.0)
+|   |   |   |   |   |   FLOW_DURATION > 18.903069: STORM (168.0)
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.000061
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 2.887197
+|   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 <= 1.559474
+|   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.452142
+|   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 <= 0.824669
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 20
+|   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 0.000295
+|   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 135.778511
+|   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 0.134514: WALEDAC (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 0.134514: CLEAN (48.0/14.0)
+|   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 135.778511: WALEDAC (26.0/1.0)
+|   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 0.000295: WALEDAC (42.0/1.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 20: WALEDAC (72.0)
+|   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 > 0.824669: WALEDAC (775.0/2.0)
+|   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.452142
+|   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 0.000166
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 11.5
+|   |   |   |   |   |   |   |   |   |   COMPRESSION <= 103.400776: WALEDAC (19.0)
+|   |   |   |   |   |   |   |   |   |   COMPRESSION > 103.400776
+|   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 <= 1.304052
+|   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 1.464643
+|   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 <= 1.152026
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 1.306834
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 <= 2.385667: CLEAN (36.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 > 2.385667: WALEDAC (11.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 1.306834
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 <= 1.096385: CLEAN (29.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 > 1.096385
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.636416: WALEDAC (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.636416: CLEAN (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 > 1.152026: WALEDAC (15.0)
+|   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 1.464643: CLEAN (36.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 > 1.304052
+|   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 1.751955: WALEDAC (46.0)
+|   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 1.751955
+|   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 144
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.871783: CLEAN (16.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.871783
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 2.054113: WALEDAC (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 2.054113: CLEAN (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 144: WALEDAC (2.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 11.5: CLEAN (8.0)
+|   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 0.000166: WALEDAC (169.0/4.0)
+|   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 > 1.559474
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 23.357143
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 12
+|   |   |   |   |   |   |   |   |   COMPRESSION <= 406.504153
+|   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 3.086584: WALEDAC (427.0/2.0)
+|   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 3.086584
+|   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 231.71482
+|   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 0.00006
+|   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 <= 39.189661
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 119.926444
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 19.395961
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 1.336805: CLEAN (13.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 1.336805: WALEDAC (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 19.395961: WALEDAC (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 119.926444: WALEDAC (191.0/19.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 > 39.189661
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 215.899769
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 46.809678: CLEAN (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 46.809678: WALEDAC (35.0/8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 215.899769
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.590266: WALEDAC (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.590266: CLEAN (29.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 0.00006: WALEDAC (136.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 231.71482
+|   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 308.271647: WALEDAC (399.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 308.271647
+|   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 322.734713
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 346.313705: WALEDAC (19.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 346.313705
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 0.000095: CLEAN (21.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 0.000095: WALEDAC (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 322.734713
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 82.154566
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 60.530577: WALEDAC (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 60.530577: CLEAN (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 82.154566: WALEDAC (265.0/2.0)
+|   |   |   |   |   |   |   |   |   COMPRESSION > 406.504153: WALEDAC (4957.0/3.0)
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 12
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 41.586592
+|   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 0.00044
+|   |   |   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC <= 1.152085
+|   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 4315.208086
+|   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 1207.127917
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 <= 1930.720292: CLEAN (19.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 > 1930.720292: WALEDAC (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 1207.127917: CLEAN (75.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 4315.208086: WALEDAC (3.0)
+|   |   |   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC > 1.152085
+|   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 19.5: CLEAN (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 19.5: WALEDAC (14.0)
+|   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 0.00044: WALEDAC (7.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 41.586592: WALEDAC (190.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 23.357143: WALEDAC (25422.0/1.0)
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 2.887197
+|   |   |   |   |   |   COMPRESSION <= 14.303298
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 39.4
+|   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC <= 0.563428: CLEAN (35.0)
+|   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC > 0.563428: WALEDAC (3.0/1.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 39.4: WALEDAC (7.0)
+|   |   |   |   |   |   COMPRESSION > 14.303298
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 38.636364
+|   |   |   |   |   |   |   |   COMPRESSION <= 65.703447
+|   |   |   |   |   |   |   |   |   FLOW_DURATION <= 1090.196637
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 21.5
+|   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 <= 2.951714: WALEDAC (55.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 > 2.951714
+|   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 10
+|   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 <= 9.058097
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 9.048115
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 55.889332: CLEAN (89.0/40.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 55.889332: WALEDAC (10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 9.048115: CLEAN (13.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 > 9.058097
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 <= 2.976045: ZEUS (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 > 2.976045: WALEDAC (10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 10: CLEAN (4.0)
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 21.5: WALEDAC (48.0/1.0)
+|   |   |   |   |   |   |   |   |   FLOW_DURATION > 1090.196637
+|   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 269.525696: CLEAN (52.0)
+|   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 269.525696
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 15: CLEAN (2.0)
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 15: WALEDAC (7.0)
+|   |   |   |   |   |   |   |   COMPRESSION > 65.703447
+|   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 <= 10.686592: WALEDAC (395.0/11.0)
+|   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 > 10.686592
+|   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 3581.661753
+|   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 167.877213
+|   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 6.021049
+|   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 10.582508
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 151.92509
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 128: WALEDAC (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 128: CLEAN (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 151.92509
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 2.947019: CLEAN (8.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 2.947019: WALEDAC (35.0/11.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 10.582508: CLEAN (25.0)
+|   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 6.021049
+|   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 0.000338
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 151.92509: WALEDAC (21.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 151.92509: CLEAN (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 0.000338: WALEDAC (27.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 167.877213
+|   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 0.000462
+|   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 19.032781
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 7.569255: WALEDAC (80.0/21.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 7.569255
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 199.952569: CLEAN (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 199.952569
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 <= 254.354117: WALEDAC (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE2 > 254.354117: CLEAN (13.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 19.032781: WALEDAC (9.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 0.000462: WALEDAC (56.0)
+|   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 3581.661753: WALEDAC (48.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 38.636364: WALEDAC (167.0)
+|   |   AVG_PAYLOAD_SIZE_RECVING > 42.285714: CLEAN (226.0)
+|   PRIME_WAVE_MAGNITUDE_PAYLOAD > 0.504985
+|   |   AVG_PAYLOAD_SIZE_SENDING <= 25.133333
+|   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.297143
+|   |   |   |   BYTES_RECV_PER_SEC <= 56.026742
+|   |   |   |   |   COMPRESSION <= 8.003091
+|   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 70: CLEAN (13.0)
+|   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 70
+|   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.00825: STORM (114.0/1.0)
+|   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.00825: CLEAN (9.0/1.0)
+|   |   |   |   |   COMPRESSION > 8.003091
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 10
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 0
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 8: CLEAN (2.0)
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 8: WALEDAC (4.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 0: STORM (63.0)
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE > 10
+|   |   |   |   |   |   |   BYTES_RECV_PER_SEC <= 1.646131
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 31.384615: STORM (20789.0/2.0)
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 31.384615
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 22.710145: STORM (1422.0/1.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 22.710145
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 23.4: CLEAN (5.0)
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 23.4: STORM (21.0)
+|   |   |   |   |   |   |   BYTES_RECV_PER_SEC > 1.646131
+|   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 27.575126
+|   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 76: STORM (56.0)
+|   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 76
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 19.5: STORM (13.0)
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 19.5: CLEAN (5.0)
+|   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 27.575126: STORM (422.0)
+|   |   |   |   BYTES_RECV_PER_SEC > 56.026742
+|   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 32.03976
+|   |   |   |   |   |   COMPRESSION <= 12.489335: CLEAN (206.0)
+|   |   |   |   |   |   COMPRESSION > 12.489335
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 20.2: CLEAN (4.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 20.2: STORM (2.0)
+|   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 32.03976
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 24.25
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 21.181818: STORM (98.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 21.181818: CLEAN (10.0)
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 24.25: STORM (2226.0)
+|   |   |   MEDIAN_INTERARRIVAL_TIME > 0.297143
+|   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 3
+|   |   |   |   |   BYTES_SENT_PER_SEC <= 0.085655: CLEAN (12.0)
+|   |   |   |   |   BYTES_SENT_PER_SEC > 0.085655: STORM (149.0/1.0)
+|   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 3
+|   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 223
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 10.533633
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 19.5: STORM (11.0/1.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 19.5: CLEAN (11.0)
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 10.533633
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 13.725573
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 13.25: CLEAN (2.0)
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 13.25: STORM (3.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 13.725573: CLEAN (176.0/3.0)
+|   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 223: ZEUS (16.0)
+|   |   AVG_PAYLOAD_SIZE_SENDING > 25.133333
+|   |   |   AVG_PAYLOAD_SIZE_SENDING <= 87.5
+|   |   |   |   COMPRESSION <= 91.223685
+|   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 25.040972
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.042996
+|   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 <= 177
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 35.875: CLEAN (248.0/1.0)
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 35.875
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 9.5: WALEDAC (9.0/1.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 9.5
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 21: STORM (4.0)
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 21
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 24.5: CLEAN (2.0)
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 24.5: STORM (2.0)
+|   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 > 177
+|   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC <= 35.171583: STORM (253.0)
+|   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC > 35.171583: WALEDAC (3.0/1.0)
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.042996
+|   |   |   |   |   |   |   COMPRESSION <= 8.074765
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 33.5: CLEAN (24.0/2.0)
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 33.5
+|   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC <= 0.108556: WALEDAC (9.0/1.0)
+|   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC > 0.108556: CLEAN (8.0)
+|   |   |   |   |   |   |   COMPRESSION > 8.074765
+|   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC <= 20.099216
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 41.926606: CLEAN (1749.0/1.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 41.926606
+|   |   |   |   |   |   |   |   |   |   COMPRESSION <= 39.983351: WALEDAC (6.0/1.0)
+|   |   |   |   |   |   |   |   |   |   COMPRESSION > 39.983351: CLEAN (33.0)
+|   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC > 20.099216
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 32.692308: CLEAN (15.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 32.692308
+|   |   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC <= 6.55782: WALEDAC (8.0/1.0)
+|   |   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC > 6.55782: CLEAN (3.0)
+|   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 25.040972
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 <= 569: CLEAN (7968.0/2.0)
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 > 569
+|   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.000013: STORM (8.0)
+|   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.000013: CLEAN (431.0)
+|   |   |   |   COMPRESSION > 91.223685
+|   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 31.5: CLEAN (30.0/1.0)
+|   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 31.5
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 35: WALEDAC (34.0/1.0)
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 35: CLEAN (3.0)
+|   |   |   AVG_PAYLOAD_SIZE_SENDING > 87.5
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.221288
+|   |   |   |   |   BYTES_SENT_PER_SEC <= 2.738219: STORM (1354.0)
+|   |   |   |   |   BYTES_SENT_PER_SEC > 2.738219
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 12.461538: CLEAN (4.0)
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 12.461538: STORM (21.0)
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.221288: CLEAN (397.0/1.0)
+AVG_PAYLOAD_SIZE > 42
+|   FLOW_DURATION <= 3603.560133
+|   |   AVG_PAYLOAD_SIZE_SENDING <= 25
+|   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 52
+|   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 59.476943
+|   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 <= 151
+|   |   |   |   |   |   COMPRESSION <= 9.046298
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 46.5: CLEAN (5.0/1.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 46.5: WALEDAC (2.0)
+|   |   |   |   |   |   COMPRESSION > 9.046298: CLEAN (30.0)
+|   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 > 151: WALEDAC (4.0)
+|   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 59.476943
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.000176
+|   |   |   |   |   |   COMPRESSION <= 13.229586
+|   |   |   |   |   |   |   COMPRESSION <= 11.145003
+|   |   |   |   |   |   |   |   COMPRESSION <= 9.046298
+|   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 307.490526
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 93
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 107: CLEAN (11.0)
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 107: STORM (2.0)
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 93: CLEAN (233.0)
+|   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 307.490526
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 319.238095: CLEAN (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 319.238095: WALEDAC (2.0)
+|   |   |   |   |   |   |   |   COMPRESSION > 9.046298: STORM (20.0)
+|   |   |   |   |   |   |   COMPRESSION > 11.145003: CLEAN (298.0)
+|   |   |   |   |   |   COMPRESSION > 13.229586: STORM (133.0)
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.000176: CLEAN (655.0)
+|   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 52
+|   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 11232
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.155806
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 66.25
+|   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 <= 271: CLEAN (3.0)
+|   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 > 271: STORM (114.0)
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 66.25: STORM (5155.0/1.0)
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.155806
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 19.5
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 18.460317: CLEAN (3.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 18.460317: STORM (28.0)
+|   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 19.5: CLEAN (26.0)
+|   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 11232: CLEAN (30.0)
+|   |   AVG_PAYLOAD_SIZE_SENDING > 25
+|   |   |   AVG_PAYLOAD_SIZE_RECVING <= 25
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.000067
+|   |   |   |   |   COMPRESSION <= 8.039924
+|   |   |   |   |   |   COMPRESSION <= 7.966924: STORM (33.0)
+|   |   |   |   |   |   COMPRESSION > 7.966924
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 50.5
+|   |   |   |   |   |   |   |   FLOW_DURATION <= 1631.903323: WALEDAC (3.0)
+|   |   |   |   |   |   |   |   FLOW_DURATION > 1631.903323: CLEAN (2.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 50.5
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 307.333333: CLEAN (133.0)
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 307.333333
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 9.5: WALEDAC (2.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 9.5: CLEAN (6.0)
+|   |   |   |   |   COMPRESSION > 8.039924
+|   |   |   |   |   |   BYTES_SENT_PER_SEC <= 140.90277: STORM (2211.0)
+|   |   |   |   |   |   BYTES_SENT_PER_SEC > 140.90277
+|   |   |   |   |   |   |   COMPRESSION <= 11.434069: STORM (11.0)
+|   |   |   |   |   |   |   COMPRESSION > 11.434069: CLEAN (81.0/1.0)
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.000067
+|   |   |   |   |   COMPRESSION <= 5.929869
+|   |   |   |   |   |   BYTES_RECV_PER_SEC <= 0.005028: ZEUS (296.0/1.0)
+|   |   |   |   |   |   BYTES_RECV_PER_SEC > 0.005028: CLEAN (8.0)
+|   |   |   |   |   COMPRESSION > 5.929869
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.016734
+|   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 46: CLEAN (7.0)
+|   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 46: WALEDAC (111.0/1.0)
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.016734
+|   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 22.496267
+|   |   |   |   |   |   |   |   FLOW_DURATION <= 9.228453: WALEDAC (29.0/1.0)
+|   |   |   |   |   |   |   |   FLOW_DURATION > 9.228453
+|   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 402
+|   |   |   |   |   |   |   |   |   |   COMPRESSION <= 7.768959: WALEDAC (3.0)
+|   |   |   |   |   |   |   |   |   |   COMPRESSION > 7.768959: CLEAN (93.0/4.0)
+|   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 402
+|   |   |   |   |   |   |   |   |   |   COMPRESSION <= 67.787416: ZEUS (3.0)
+|   |   |   |   |   |   |   |   |   |   COMPRESSION > 67.787416: CLEAN (2.0)
+|   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 22.496267
+|   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 280.308934: CLEAN (1968.0/9.0)
+|   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 280.308934
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 116.75: CLEAN (40.0/1.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 116.75
+|   |   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC <= 0.03152: ZEUS (12.0)
+|   |   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC > 0.03152: CLEAN (2.0)
+|   |   |   AVG_PAYLOAD_SIZE_RECVING > 25
+|   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 1226.593822
+|   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 109.444444
+|   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 74.310372
+|   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 194
+|   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 176
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 87.72973: CLEAN (21150.0/2.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 87.72973
+|   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 34.470901
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 68: CLEAN (62.0)
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 68: ZEUS (5.0)
+|   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 34.470901
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 91.642857
+|   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 133.5: CLEAN (2242.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 133.5
+|   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.001356
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 90: CLEAN (28.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 90
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 172: STORM (10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 172: CLEAN (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.001356: CLEAN (120.0)
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 91.642857
+|   |   |   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 <= 292
+|   |   |   |   |   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC <= 1.22989: CLEAN (344.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC > 1.22989
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 105
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 50.5
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 43.5: CLEAN (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 43.5: ZEUS (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 50.5: CLEAN (75.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 105
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC <= 81.723245
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 74: CLEAN (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 74: ZEUS (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC > 81.723245: ZEUS (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 > 292
+|   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 32.166667
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 31.75: CLEAN (74.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 31.75: ZEUS (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 32.166667: CLEAN (8239.0/5.0)
+|   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 176
+|   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 <= 0.037034
+|   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 186: ZEUS (27.0/2.0)
+|   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 186: CLEAN (10.0)
+|   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 > 0.037034: CLEAN (143.0)
+|   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 194
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 106.410256
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 58.324324
+|   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.000007
+|   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 284: CLEAN (1201.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 284
+|   |   |   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 74.684049: CLEAN (62.0)
+|   |   |   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 74.684049: STORM (8.0)
+|   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.000007: CLEAN (7098.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 58.324324: CLEAN (192398.0/14.0)
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 106.410256
+|   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 <= 4.1023
+|   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 <= 1.055213
+|   |   |   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC <= 1333.635999: ZEUS (7.0)
+|   |   |   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC > 1333.635999: CLEAN (2.0)
+|   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 > 1.055213: CLEAN (16.0)
+|   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 > 4.1023: CLEAN (1659.0)
+|   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 74.310372
+|   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 18.45704
+|   |   |   |   |   |   |   |   COMPRESSION <= 5.828907: ZEUS (13.0)
+|   |   |   |   |   |   |   |   COMPRESSION > 5.828907: CLEAN (30.0)
+|   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 18.45704
+|   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 <= 3393.303373
+|   |   |   |   |   |   |   |   |   COMPRESSION <= 5.449109
+|   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 134: ZEUS (7.0)
+|   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 134: CLEAN (128.0)
+|   |   |   |   |   |   |   |   |   COMPRESSION > 5.449109: CLEAN (2473.0/1.0)
+|   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 > 3393.303373
+|   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC <= 0.081858: CLEAN (19.0)
+|   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC > 0.081858: ZEUS (6.0)
+|   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 109.444444
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 157.482294
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 131.8
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 117.833333
+|   |   |   |   |   |   |   |   |   COMPRESSION <= 8.058194: ZEUS (34.0/2.0)
+|   |   |   |   |   |   |   |   |   COMPRESSION > 8.058194: CLEAN (11.0/1.0)
+|   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 117.833333
+|   |   |   |   |   |   |   |   |   COMPRESSION <= 7.768959
+|   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.025391: STORM (6.0)
+|   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.025391
+|   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 5.572505: ZEUS (15.0)
+|   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 5.572505
+|   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 104.229522: CLEAN (28.0)
+|   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 104.229522
+|   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 2024.15719: ZEUS (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 2024.15719: CLEAN (2.0)
+|   |   |   |   |   |   |   |   |   COMPRESSION > 7.768959
+|   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 385
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 114.75: CLEAN (69.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 114.75
+|   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 159
+|   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 24.620413: ZEUS (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 24.620413: CLEAN (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 159: ZEUS (25.0)
+|   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 385
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 197: CLEAN (490.0)
+|   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 197
+|   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 229
+|   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 438: ZEUS (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 438: CLEAN (62.0)
+|   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 229: ZEUS (3.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 131.8
+|   |   |   |   |   |   |   |   COMPRESSION <= 8.694594
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 237: ZEUS (220.0/1.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 237
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 217: ZEUS (6.0)
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 217: CLEAN (4.0/1.0)
+|   |   |   |   |   |   |   |   COMPRESSION > 8.694594: CLEAN (26.0/1.0)
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 157.482294
+|   |   |   |   |   |   |   BYTES_RECV_PER_SEC <= 1722.683643
+|   |   |   |   |   |   |   |   COMPRESSION <= 4.478501
+|   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 14.173612: CLEAN (793.0/1.0)
+|   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 14.173612
+|   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 <= 3022
+|   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 123.467298: ZEUS (151.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 123.467298: CLEAN (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 > 3022: CLEAN (8.0)
+|   |   |   |   |   |   |   |   COMPRESSION > 4.478501
+|   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 1642.060024
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 667
+|   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 4.81648
+|   |   |   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 370.614916: ZEUS (16.0)
+|   |   |   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 370.614916
+|   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 4.95681: CLEAN (488.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 4.95681
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 0.49204: CLEAN (25.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 0.49204: ZEUS (3.0)
+|   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 4.81648
+|   |   |   |   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC <= 835.54443
+|   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 42.050847
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 <= 1947: CLEAN (611.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 > 1947
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING <= 41.839844: CLEAN (70.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 41.839844: WALEDAC (10.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 42.050847
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 10.084112: CLEAN (18656.0/17.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 10.084112
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 <= 1.015528
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 378: CLEAN (17.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 378: STORM (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 > 1.015528: CLEAN (2379.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC > 835.54443
+|   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 639: CLEAN (429.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 639
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION <= 6.807462: ZEUS (12.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   COMPRESSION > 6.807462: CLEAN (5.0)
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 667
+|   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.252252
+|   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION <= 341.39914
+|   |   |   |   |   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC <= 198.914751
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 172.5: CLEAN (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 172.5: ZEUS (21.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC > 198.914751: CLEAN (12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   FLOW_DURATION > 341.39914: CLEAN (44.0)
+|   |   |   |   |   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.252252: CLEAN (449.0/1.0)
+|   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 1642.060024
+|   |   |   |   |   |   |   |   |   |   COMPRESSION <= 8.6027: ZEUS (13.0)
+|   |   |   |   |   |   |   |   |   |   COMPRESSION > 8.6027: CLEAN (12.0)
+|   |   |   |   |   |   |   BYTES_RECV_PER_SEC > 1722.683643
+|   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 663
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 928.245283
+|   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD <= 320: CLEAN (206.0/1.0)
+|   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 320
+|   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT <= 0.115076
+|   |   |   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 <= 1874: CLEAN (26.0)
+|   |   |   |   |   |   |   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 > 1874
+|   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 382.5: ZEUS (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 382.5: CLEAN (4.0)
+|   |   |   |   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT > 0.115076: ZEUS (2.0)
+|   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 928.245283
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 1108.069597: ZEUS (5.0)
+|   |   |   |   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 1108.069597: CLEAN (2.0)
+|   |   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD > 663
+|   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC <= 2562.958459
+|   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 <= 1.151645: ZEUS (53.0)
+|   |   |   |   |   |   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 > 1.151645: CLEAN (5.0)
+|   |   |   |   |   |   |   |   |   BYTES_SENT_PER_SEC > 2562.958459: CLEAN (12.0)
+|   |   |   |   AVG_PAYLOAD_SIZE_RECVING > 1226.593822
+|   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING <= 136: CLEAN (1344.0/1.0)
+|   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING > 136
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 <= 50586.11838
+|   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME <= 0.130814: ZEUS (190.0/1.0)
+|   |   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME > 0.130814
+|   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC <= 346.923328: ZEUS (7.0/1.0)
+|   |   |   |   |   |   |   |   BYTES_RECV_PER_SEC > 346.923328: CLEAN (3.0)
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 > 50586.11838
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE <= 1253.583333
+|   |   |   |   |   |   |   |   FLOW_DURATION <= 773.000943: ZEUS (2.0)
+|   |   |   |   |   |   |   |   FLOW_DURATION > 773.000943: CLEAN (6.0)
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE > 1253.583333: CLEAN (77.0)
+|   FLOW_DURATION > 3603.560133
+|   |   AVG_PAYLOAD_SIZE_RECVING <= 86.227273
+|   |   |   MEDIAN_INTERARRIVAL_TIME <= 9.80142: WALEDAC (3.0)
+|   |   |   MEDIAN_INTERARRIVAL_TIME > 9.80142: ZEUS (22.0)
+|   |   AVG_PAYLOAD_SIZE_RECVING > 86.227273: ZEUS (1394.0)
+
+Number of Leaves  : 	289
+
+Size of the tree : 	577
+
+
+Time taken to build model: 55.44 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on training split: 0.14 seconds
+
+=== Summary ===
+
+Correctly Classified Instances      119646               99.7857 %
+Incorrectly Classified Instances       257                0.2143 %
+Kappa statistic                          0.9938
+Mean absolute error                      0.0014
+Root mean squared error                  0.0307
+Relative absolute error                  0.7865 %
+Root relative squared error             10.4024 %
+Coverage of cases (0.95 level)          99.8691 %
+Mean rel. region size (0.95 level)      25.0794 %
+Total Number of Instances           119903     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.961    0.000    0.978      0.961    0.969      0.969    0.986     0.953     ZEUS
+                 0.999    0.005    0.999      0.999    0.999      0.994    0.998     0.999     CLEAN
+                 0.993    0.001    0.992      0.993    0.993      0.992    0.999     0.994     WALEDAC
+                 0.998    0.000    0.999      0.998    0.999      0.998    0.999     0.998     STORM
+Weighted Avg.    0.998    0.004    0.998      0.998    0.998      0.994    0.998     0.998     
+
+=== Confusion Matrix ===
+
+     a     b     c     d   <-- classified as
+   879    33     3     0 |     a = ZEUS
+    18 95210    90    11 |     b = CLEAN
+     1    77 11673     1 |     c = WALEDAC
+     1    19     3 11884 |     d = STORM
+
+*************************************************************************************************************
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.REPTree -M 2 -V 0.001 -N 3 -S 1 -L 8 -I 0.0
+Relation:     ConversationRelation-weka.filters.unsupervised.attribute.Remove-R1-5,7-12,16-26,30-32,35,37,39-57,59,61,63-81
+Instances:    352657
+Attributes:   15
+              FLOW_DURATION
+              BYTES_SENT_PER_SEC
+              BYTES_RECV_PER_SEC
+              MEDIAN_INTERARRIVAL_TIME
+              AVG_PAYLOAD_SIZE
+              AVG_PAYLOAD_SIZE_SENDING
+              AVG_PAYLOAD_SIZE_RECVING
+              COMPRESSION
+              PRIME_WAVE_MAGNITUDE_PAYLOAD
+              DFT_PAYLOAD_MAGNITUDE1
+              DFT_PAYLOAD_MAGNITUDE2
+              PRIME_WAVE_MAGNITUDE_IAT
+              DFT_INTERARRIVAL_TIME_MAGNITUDE1
+              DFT_INTERARRIVAL_TIME_MAGNITUDE2
+              LABEL
+Test mode:    split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+
+REPTree
+============
+
+AVG_PAYLOAD_SIZE < 42.03
+|   PRIME_WAVE_MAGNITUDE_PAYLOAD < 3
+|   |   MEDIAN_INTERARRIVAL_TIME < 2.91
+|   |   |   MEDIAN_INTERARRIVAL_TIME < 0
+|   |   |   |   FLOW_DURATION < 2.7 : WALEDAC (265/11) [127/4]
+|   |   |   |   FLOW_DURATION >= 2.7
+|   |   |   |   |   AVG_PAYLOAD_SIZE < 26
+|   |   |   |   |   |   BYTES_RECV_PER_SEC < 0
+|   |   |   |   |   |   |   COMPRESSION < 88 : WALEDAC (20/3) [12/1]
+|   |   |   |   |   |   |   COMPRESSION >= 88 : STORM (21/0) [9/0]
+|   |   |   |   |   |   BYTES_RECV_PER_SEC >= 0 : STORM (109/0) [63/0]
+|   |   |   |   |   AVG_PAYLOAD_SIZE >= 26 : CLEAN (24/0) [15/2]
+|   |   |   MEDIAN_INTERARRIVAL_TIME >= 0
+|   |   |   |   AVG_PAYLOAD_SIZE_RECVING < 28.76
+|   |   |   |   |   COMPRESSION < 328
+|   |   |   |   |   |   FLOW_DURATION < 1519.93 : WALEDAC (1683/165) [913/108]
+|   |   |   |   |   |   FLOW_DURATION >= 1519.93
+|   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT < 0 : CLEAN (79/6) [25/7]
+|   |   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT >= 0 : WALEDAC (30/0) [11/2]
+|   |   |   |   |   COMPRESSION >= 328 : WALEDAC (3433/3) [1804/7]
+|   |   |   |   AVG_PAYLOAD_SIZE_RECVING >= 28.76
+|   |   |   |   |   COMPRESSION < 9.29 : CLEAN (17/0) [9/0]
+|   |   |   |   |   COMPRESSION >= 9.29 : WALEDAC (17272/1) [8501/0]
+|   |   MEDIAN_INTERARRIVAL_TIME >= 2.91
+|   |   |   COMPRESSION < 14.55
+|   |   |   |   BYTES_RECV_PER_SEC < 0.32 : CLEAN (281/1) [110/2]
+|   |   |   |   BYTES_RECV_PER_SEC >= 0.32
+|   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING < 27.05 : CLEAN (5/1) [3/0]
+|   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING >= 27.05 : WALEDAC (7/0) [7/2]
+|   |   |   COMPRESSION >= 14.55
+|   |   |   |   AVG_PAYLOAD_SIZE < 37.06
+|   |   |   |   |   COMPRESSION < 72
+|   |   |   |   |   |   FLOW_DURATION < 1103.21 : WALEDAC (155/45) [75/27]
+|   |   |   |   |   |   FLOW_DURATION >= 1103.21 : CLEAN (44/6) [16/2]
+|   |   |   |   |   COMPRESSION >= 72 : WALEDAC (477/69) [262/42]
+|   |   |   |   AVG_PAYLOAD_SIZE >= 37.06 : WALEDAC (112/0) [49/1]
+|   PRIME_WAVE_MAGNITUDE_PAYLOAD >= 3
+|   |   AVG_PAYLOAD_SIZE_SENDING < 25.05
+|   |   |   MEDIAN_INTERARRIVAL_TIME < 0.3
+|   |   |   |   BYTES_RECV_PER_SEC < 56.04
+|   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD < 34
+|   |   |   |   |   |   COMPRESSION < 9.05 : CLEAN (7/0) [5/0]
+|   |   |   |   |   |   COMPRESSION >= 9.05
+|   |   |   |   |   |   |   FLOW_DURATION < 52.19 : CLEAN (2/0) [0/0]
+|   |   |   |   |   |   |   FLOW_DURATION >= 52.19 : STORM (2/0) [1/0]
+|   |   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD >= 34
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME < 0 : STORM (15130/3) [7631/10]
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME >= 0
+|   |   |   |   |   |   |   COMPRESSION < 10.21 : CLEAN (11/5) [6/1]
+|   |   |   |   |   |   |   COMPRESSION >= 10.21 : STORM (103/1) [38/2]
+|   |   |   |   BYTES_RECV_PER_SEC >= 56.04
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME < 0 : CLEAN (147/0) [68/1]
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME >= 0 : STORM (1564/5) [767/1]
+|   |   |   MEDIAN_INTERARRIVAL_TIME >= 0.3
+|   |   |   |   AVG_PAYLOAD_SIZE_RECVING < 3
+|   |   |   |   |   FLOW_DURATION < 1039.28 : STORM (98/0) [51/1]
+|   |   |   |   |   FLOW_DURATION >= 1039.28 : CLEAN (9/0) [3/0]
+|   |   |   |   AVG_PAYLOAD_SIZE_RECVING >= 3
+|   |   |   |   |   FLOW_DURATION < 43176.07
+|   |   |   |   |   |   COMPRESSION < 14.22 : CLEAN (111/2) [57/2]
+|   |   |   |   |   |   COMPRESSION >= 14.22
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING < 19.5 : STORM (9/0) [3/0]
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING >= 19.5 : CLEAN (17/0) [5/0]
+|   |   |   |   |   FLOW_DURATION >= 43176.07 : ZEUS (13/0) [3/0]
+|   |   AVG_PAYLOAD_SIZE_SENDING >= 25.05
+|   |   |   AVG_PAYLOAD_SIZE_SENDING < 87.5
+|   |   |   |   AVG_PAYLOAD_SIZE_RECVING < 25.03
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME < 0.06
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 < 177
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE < 35.88 : CLEAN (154/1) [94/0]
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE >= 35.88 : WALEDAC (8/6) [9/3]
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 >= 177
+|   |   |   |   |   |   |   BYTES_RECV_PER_SEC < 0 : WALEDAC (15/0) [17/1]
+|   |   |   |   |   |   |   BYTES_RECV_PER_SEC >= 0 : STORM (171/0) [86/0]
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME >= 0.06 : CLEAN (1252/16) [609/10]
+|   |   |   |   AVG_PAYLOAD_SIZE_RECVING >= 25.03
+|   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING < 108.5 : CLEAN (5554/3) [2865/3]
+|   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING >= 108.5
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME < 0.13 : STORM (4/0) [1/0]
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME >= 0.13 : CLEAN (8/0) [6/0]
+|   |   |   AVG_PAYLOAD_SIZE_SENDING >= 87.5
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME < 0.28 : STORM (912/4) [467/0]
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME >= 0.28 : CLEAN (264/0) [133/1]
+AVG_PAYLOAD_SIZE >= 42.03
+|   AVG_PAYLOAD_SIZE_SENDING < 25.01
+|   |   PRIME_WAVE_MAGNITUDE_PAYLOAD < 52.5
+|   |   |   COMPRESSION < 71.64
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME < 0
+|   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 < 1.44
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 < 95.5
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE < 84.5 : CLEAN (6/3) [4/0]
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE >= 84.5 : STORM (5/0) [1/0]
+|   |   |   |   |   |   DFT_PAYLOAD_MAGNITUDE1 >= 95.5 : CLEAN (351/9) [210/9]
+|   |   |   |   |   DFT_INTERARRIVAL_TIME_MAGNITUDE1 >= 1.44 : STORM (31/0) [8/0]
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME >= 0 : CLEAN (465/1) [221/3]
+|   |   |   COMPRESSION >= 71.64
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME < 3.02 : STORM (65/0) [30/0]
+|   |   |   |   MEDIAN_INTERARRIVAL_TIME >= 3.02 : CLEAN (2/0) [1/0]
+|   |   PRIME_WAVE_MAGNITUDE_PAYLOAD >= 52.5
+|   |   |   MEDIAN_INTERARRIVAL_TIME < 0
+|   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD < 210579 : STORM (3531/1) [1735/3]
+|   |   |   |   PRIME_WAVE_MAGNITUDE_PAYLOAD >= 210579 : CLEAN (11/0) [4/0]
+|   |   |   MEDIAN_INTERARRIVAL_TIME >= 0
+|   |   |   |   FLOW_DURATION < 1263.47
+|   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING < 21.83 : STORM (24/1) [12/3]
+|   |   |   |   |   AVG_PAYLOAD_SIZE_SENDING >= 21.83 : CLEAN (7/1) [7/1]
+|   |   |   |   FLOW_DURATION >= 1263.47 : CLEAN (22/0) [6/0]
+|   AVG_PAYLOAD_SIZE_SENDING >= 25.01
+|   |   AVG_PAYLOAD_SIZE_RECVING < 25.01
+|   |   |   MEDIAN_INTERARRIVAL_TIME < 0
+|   |   |   |   COMPRESSION < 8.04
+|   |   |   |   |   COMPRESSION < 7.97 : STORM (25/0) [8/0]
+|   |   |   |   |   COMPRESSION >= 7.97 : CLEAN (93/3) [53/2]
+|   |   |   |   COMPRESSION >= 8.04
+|   |   |   |   |   BYTES_SENT_PER_SEC < 105.92 : STORM (1482/0) [728/0]
+|   |   |   |   |   BYTES_SENT_PER_SEC >= 105.92
+|   |   |   |   |   |   COMPRESSION < 11.43 : STORM (9/0) [3/0]
+|   |   |   |   |   |   COMPRESSION >= 11.43 : CLEAN (53/1) [28/0]
+|   |   |   MEDIAN_INTERARRIVAL_TIME >= 0
+|   |   |   |   COMPRESSION < 5.93
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME < 11.82 : CLEAN (7/2) [3/0]
+|   |   |   |   |   MEDIAN_INTERARRIVAL_TIME >= 11.82 : ZEUS (199/0) [96/0]
+|   |   |   |   COMPRESSION >= 5.93
+|   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 < 26.52
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME < 4.76 : WALEDAC (98/2) [31/0]
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME >= 4.76 : CLEAN (63/8) [38/2]
+|   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 >= 26.52
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME < 0.01
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE < 62.5 : WALEDAC (7/0) [4/0]
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE >= 62.5 : CLEAN (3/0) [1/0]
+|   |   |   |   |   |   MEDIAN_INTERARRIVAL_TIME >= 0.01 : CLEAN (1344/14) [683/10]
+|   |   AVG_PAYLOAD_SIZE_RECVING >= 25.01
+|   |   |   FLOW_DURATION < 3604.65
+|   |   |   |   AVG_PAYLOAD_SIZE_SENDING < 110.95
+|   |   |   |   |   COMPRESSION < 10.67
+|   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT < 75.59 : CLEAN (41764/63) [21033/30]
+|   |   |   |   |   |   PRIME_WAVE_MAGNITUDE_IAT >= 75.59
+|   |   |   |   |   |   |   COMPRESSION < 4.33 : ZEUS (12/0) [2/0]
+|   |   |   |   |   |   |   COMPRESSION >= 4.33 : CLEAN (1121/10) [581/5]
+|   |   |   |   |   COMPRESSION >= 10.67 : CLEAN (116930/3) [58181/5]
+|   |   |   |   AVG_PAYLOAD_SIZE_SENDING >= 110.95
+|   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 < 105.5
+|   |   |   |   |   |   COMPRESSION < 8.55
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING < 59 : CLEAN (19/0) [14/1]
+|   |   |   |   |   |   |   AVG_PAYLOAD_SIZE_RECVING >= 59 : ZEUS (172/8) [82/5]
+|   |   |   |   |   |   COMPRESSION >= 8.55 : CLEAN (104/1) [64/2]
+|   |   |   |   |   DFT_PAYLOAD_MAGNITUDE2 >= 105.5 : CLEAN (16539/379) [8270/208]
+|   |   |   FLOW_DURATION >= 3604.65 : ZEUS (941/0) [475/1]
+
+Size of the tree : 149
+
+Time taken to build model: 19.49 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on training split: 0.11 seconds
+
+=== Summary ===
+
+Correctly Classified Instances      119422               99.5988 %
+Incorrectly Classified Instances       481                0.4012 %
+Kappa statistic                          0.9885
+Mean absolute error                      0.0034
+Root mean squared error                  0.042 
+Relative absolute error                  1.9403 %
+Root relative squared error             14.2422 %
+Coverage of cases (0.95 level)          99.839  %
+Mean rel. region size (0.95 level)      25.4024 %
+Total Number of Instances           119903     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.770    0.000    0.994      0.770    0.868      0.875    0.978     0.864     ZEUS
+                 0.998    0.011    0.997      0.998    0.998      0.988    0.998     0.999     CLEAN
+                 0.997    0.002    0.985      0.997    0.991      0.990    0.999     0.997     WALEDAC
+                 0.997    0.000    0.998      0.997    0.997      0.997    0.999     0.998     STORM
+Weighted Avg.    0.996    0.009    0.996      0.996    0.996      0.988    0.998     0.998     
+
+=== Confusion Matrix ===
+
+     a     b     c     d   <-- classified as
+   705   207     3     0 |     a = ZEUS
+     4 95136   177    12 |     b = CLEAN
+     0    30 11715     7 |     c = WALEDAC
+     0    38     3 11866 |     d = STORM
+************************************************************************************************************
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.SMO -C 5.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K "weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0"
+Relation:     ConversationRelation-weka.filters.unsupervised.attribute.Remove-R1-5,7-12,16-26,30-32,35,37,39-57,59,61,63-81
+Instances:    352657
+Attributes:   15
+              FLOW_DURATION
+              BYTES_SENT_PER_SEC
+              BYTES_RECV_PER_SEC
+              MEDIAN_INTERARRIVAL_TIME
+              AVG_PAYLOAD_SIZE
+              AVG_PAYLOAD_SIZE_SENDING
+              AVG_PAYLOAD_SIZE_RECVING
+              COMPRESSION
+              PRIME_WAVE_MAGNITUDE_PAYLOAD
+              DFT_PAYLOAD_MAGNITUDE1
+              DFT_PAYLOAD_MAGNITUDE2
+              PRIME_WAVE_MAGNITUDE_IAT
+              DFT_INTERARRIVAL_TIME_MAGNITUDE1
+              DFT_INTERARRIVAL_TIME_MAGNITUDE2
+              LABEL
+Test mode:    split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+SMO
+
+Kernel used:
+  Linear Kernel: K(x,y) = <x,y>
+
+Classifier for classes: ZEUS, CLEAN
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+       -14.255  * (normalized) FLOW_DURATION
+ +      -0.0225 * (normalized) BYTES_SENT_PER_SEC
+ +      -0.335  * (normalized) BYTES_RECV_PER_SEC
+ +      -0.0817 * (normalized) MEDIAN_INTERARRIVAL_TIME
+ +       1.3491 * (normalized) AVG_PAYLOAD_SIZE
+ +      -1.2833 * (normalized) AVG_PAYLOAD_SIZE_SENDING
+ +      -1.4598 * (normalized) AVG_PAYLOAD_SIZE_RECVING
+ +       0.7284 * (normalized) COMPRESSION
+ +       1.4172 * (normalized) PRIME_WAVE_MAGNITUDE_PAYLOAD
+ +       2.2567 * (normalized) DFT_PAYLOAD_MAGNITUDE1
+ +       2.9387 * (normalized) DFT_PAYLOAD_MAGNITUDE2
+ +     -10.9208 * (normalized) PRIME_WAVE_MAGNITUDE_IAT
+ +     -19.2036 * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE1
+ +       0.199  * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE2
+ +       1.4139
+
+Number of kernel evaluations: 165782995 (47.293% cached)
+
+Classifier for classes: ZEUS, WALEDAC
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -6.0612 * (normalized) FLOW_DURATION
+ +      -0.0445 * (normalized) BYTES_SENT_PER_SEC
+ +      -0.2551 * (normalized) BYTES_RECV_PER_SEC
+ +      -3.3934 * (normalized) MEDIAN_INTERARRIVAL_TIME
+ +     -45.6089 * (normalized) AVG_PAYLOAD_SIZE
+ +     -41.8021 * (normalized) AVG_PAYLOAD_SIZE_SENDING
+ +     -29.6929 * (normalized) AVG_PAYLOAD_SIZE_RECVING
+ +       0.8815 * (normalized) COMPRESSION
+ +      -0.0058 * (normalized) PRIME_WAVE_MAGNITUDE_PAYLOAD
+ +      -0.0013 * (normalized) DFT_PAYLOAD_MAGNITUDE1
+ +       0.0023 * (normalized) DFT_PAYLOAD_MAGNITUDE2
+ +      -0.7844 * (normalized) PRIME_WAVE_MAGNITUDE_IAT
+ +       0.4507 * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE1
+ +       3.6011 * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE2
+ +       1.5306
+
+Number of kernel evaluations: 1600462 (72.059% cached)
+
+Classifier for classes: ZEUS, STORM
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+        -4.3434 * (normalized) FLOW_DURATION
+ +      -0.0199 * (normalized) BYTES_SENT_PER_SEC
+ +       0.1013 * (normalized) BYTES_RECV_PER_SEC
+ +     -13.5098 * (normalized) MEDIAN_INTERARRIVAL_TIME
+ +     -22.7981 * (normalized) AVG_PAYLOAD_SIZE
+ +     -19.3474 * (normalized) AVG_PAYLOAD_SIZE_SENDING
+ +      -0.4902 * (normalized) AVG_PAYLOAD_SIZE_RECVING
+ +       0.6641 * (normalized) COMPRESSION
+ +      -0.0085 * (normalized) PRIME_WAVE_MAGNITUDE_PAYLOAD
+ +       0.0005 * (normalized) DFT_PAYLOAD_MAGNITUDE1
+ +       0.0145 * (normalized) DFT_PAYLOAD_MAGNITUDE2
+ +      -2.0644 * (normalized) PRIME_WAVE_MAGNITUDE_IAT
+ +      -1.268  * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE1
+ +      -1.9141 * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE2
+ +       1.5717
+
+Number of kernel evaluations: 407991 (55.079% cached)
+
+Classifier for classes: CLEAN, WALEDAC
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+       -63.1003 * (normalized) FLOW_DURATION
+ +     -35.5895 * (normalized) BYTES_SENT_PER_SEC
+ +     -34.5195 * (normalized) BYTES_RECV_PER_SEC
+ +     -39.4806 * (normalized) MEDIAN_INTERARRIVAL_TIME
+ +     -96.2014 * (normalized) AVG_PAYLOAD_SIZE
+ +     -91.3604 * (normalized) AVG_PAYLOAD_SIZE_SENDING
+ +     -96.5758 * (normalized) AVG_PAYLOAD_SIZE_RECVING
+ +       8.5709 * (normalized) COMPRESSION
+ +      -0.1168 * (normalized) PRIME_WAVE_MAGNITUDE_PAYLOAD
+ +       0.0085 * (normalized) DFT_PAYLOAD_MAGNITUDE1
+ +       0.2351 * (normalized) DFT_PAYLOAD_MAGNITUDE2
+ +      -1.2729 * (normalized) PRIME_WAVE_MAGNITUDE_IAT
+ +      20.256  * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE1
+ +      39.1588 * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE2
+ +       0.9933
+
+Number of kernel evaluations: 4438586 (52.264% cached)
+
+Classifier for classes: CLEAN, STORM
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+       105.3638 * (normalized) FLOW_DURATION
+ +       5.6692 * (normalized) BYTES_SENT_PER_SEC
+ +     -50.4952 * (normalized) BYTES_RECV_PER_SEC
+ +     -70.5465 * (normalized) MEDIAN_INTERARRIVAL_TIME
+ +    -136.9893 * (normalized) AVG_PAYLOAD_SIZE
+ +    -125.269  * (normalized) AVG_PAYLOAD_SIZE_SENDING
+ +       7.7087 * (normalized) AVG_PAYLOAD_SIZE_RECVING
+ +      24.429  * (normalized) COMPRESSION
+ +      -0.0567 * (normalized) PRIME_WAVE_MAGNITUDE_PAYLOAD
+ +      -0.0187 * (normalized) DFT_PAYLOAD_MAGNITUDE1
+ +       0.0757 * (normalized) DFT_PAYLOAD_MAGNITUDE2
+ +      -5.8126 * (normalized) PRIME_WAVE_MAGNITUDE_IAT
+ +      10.6351 * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE1
+ +       2.5068 * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE2
+ +       0.514 
+
+Number of kernel evaluations: 9945625 (51.304% cached)
+
+Classifier for classes: WALEDAC, STORM
+
+BinarySMO
+
+Machine linear: showing attribute weights, not support vectors.
+
+       216.6649 * (normalized) FLOW_DURATION
+ +      43.1084 * (normalized) BYTES_SENT_PER_SEC
+ +       3.8803 * (normalized) BYTES_RECV_PER_SEC
+ +     -10.1128 * (normalized) MEDIAN_INTERARRIVAL_TIME
+ +     -42.0187 * (normalized) AVG_PAYLOAD_SIZE
+ +      16.7793 * (normalized) AVG_PAYLOAD_SIZE_SENDING
+ +      58.3927 * (normalized) AVG_PAYLOAD_SIZE_RECVING
+ +     -33.8577 * (normalized) COMPRESSION
+ +       0.0938 * (normalized) PRIME_WAVE_MAGNITUDE_PAYLOAD
+ +      -0.0223 * (normalized) DFT_PAYLOAD_MAGNITUDE1
+ +      -0.1673 * (normalized) DFT_PAYLOAD_MAGNITUDE2
+ +      -1.6535 * (normalized) PRIME_WAVE_MAGNITUDE_IAT
+ +     -55.181  * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE1
+ +     -95.8691 * (normalized) DFT_INTERARRIVAL_TIME_MAGNITUDE2
+ -       0.51  
+
+Number of kernel evaluations: 3248766 (54.418% cached)
+
+
+
+Time taken to build model: 60.26 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on training split: 0.2 seconds
+
+=== Summary ===
+
+Correctly Classified Instances      103181               86.0537 %
+Incorrectly Classified Instances     16722               13.9463 %
+Kappa statistic                          0.5211
+Mean absolute error                      0.2642
+Root mean squared error                  0.3336
+Relative absolute error                151.2014 %
+Root relative squared error            113.0437 %
+Coverage of cases (0.95 level)          99.8707 %
+Mean rel. region size (0.95 level)      75.0586 %
+Total Number of Instances           119903     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.260    0.000    1.000      0.260    0.413      0.509    0.790     0.279     ZEUS
+                 0.983    0.462    0.892      0.983    0.935      0.638    0.776     0.897     CLEAN
+                 0.401    0.041    0.516      0.401    0.451      0.404    0.930     0.447     WALEDAC
+                 0.379    0.009    0.827      0.379    0.520      0.532    0.681     0.381     STORM
+Weighted Avg.    0.861    0.373    0.849      0.861    0.843      0.604    0.782     0.797     
+
+=== Confusion Matrix ===
+
+     a     b     c     d   <-- classified as
+   238   674     3     0 |     a = ZEUS
+     0 93716   694   919 |     b = CLEAN
+     0  7018  4711    23 |     c = WALEDAC
+     0  3673  3718  4516 |     d = STORM
+
+
+************************************************************************************************************************
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H 9
+Relation:     ConversationRelation-weka.filters.unsupervised.attribute.Remove-R1-5,7-12,16-26,30-32,35,37,39-57,59,61,63-81
+Instances:    352657
+Attributes:   15
+              FLOW_DURATION
+              BYTES_SENT_PER_SEC
+              BYTES_RECV_PER_SEC
+              MEDIAN_INTERARRIVAL_TIME
+              AVG_PAYLOAD_SIZE
+              AVG_PAYLOAD_SIZE_SENDING
+              AVG_PAYLOAD_SIZE_RECVING
+              COMPRESSION
+              PRIME_WAVE_MAGNITUDE_PAYLOAD
+              DFT_PAYLOAD_MAGNITUDE1
+              DFT_PAYLOAD_MAGNITUDE2
+              PRIME_WAVE_MAGNITUDE_IAT
+              DFT_INTERARRIVAL_TIME_MAGNITUDE1
+              DFT_INTERARRIVAL_TIME_MAGNITUDE2
+              LABEL
+Test mode:    split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    -18.093858525492898
+    Node 4    3.6561406384711224
+    Node 5    -10.440511427917647
+    Node 6    8.733555321621528
+    Node 7    -2.3599405152110853
+    Node 8    -0.03947823152001415
+    Node 9    -0.8105061483479744
+    Node 10    13.98588090879071
+    Node 11    0.2660421931391745
+    Node 12    -15.839136987551816
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    -57.01029399887387
+    Node 4    4.224974145904133
+    Node 5    0.021072183043933056
+    Node 6    -9.709984539219104
+    Node 7    20.64524834296927
+    Node 8    5.568246039422629
+    Node 9    34.43631187758761
+    Node 10    2.3826670041047824
+    Node 11    2.7990777221636156
+    Node 12    13.88969008507975
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    19.14599835551823
+    Node 4    -12.602095896971575
+    Node 5    5.059782541555225
+    Node 6    -169.08410633853043
+    Node 7    -3.5083199352682914
+    Node 8    -74.56488119911398
+    Node 9    -19.21755536689007
+    Node 10    1.365559636476703
+    Node 11    2.7805656775538514
+    Node 12    -6.207173397976206
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    -6.411253352802212
+    Node 4    -7.96801785600398
+    Node 5    -3.155764724079447
+    Node 6    16.23658988075524
+    Node 7    -21.95229043381852
+    Node 8    -25.107111759447104
+    Node 9    -18.87922712494713
+    Node 10    -5.581414792572582
+    Node 11    -11.044344078733031
+    Node 12    5.444258966589938
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    116.847261600241
+    Attrib FLOW_DURATION    33.74055511584387
+    Attrib BYTES_SENT_PER_SEC    42.33595988855692
+    Attrib BYTES_RECV_PER_SEC    58.361049592794096
+    Attrib MEDIAN_INTERARRIVAL_TIME    80.48764749512762
+    Attrib AVG_PAYLOAD_SIZE    225.3065891627355
+    Attrib AVG_PAYLOAD_SIZE_SENDING    93.00187283489565
+    Attrib AVG_PAYLOAD_SIZE_RECVING    187.25141256744195
+    Attrib COMPRESSION    -118.39468876621818
+    Attrib PRIME_WAVE_MAGNITUDE_PAYLOAD    -116.47572668870966
+    Attrib DFT_PAYLOAD_MAGNITUDE1    -116.77128581249364
+    Attrib DFT_PAYLOAD_MAGNITUDE2    -117.43936936012133
+    Attrib PRIME_WAVE_MAGNITUDE_IAT    -103.86125963748168
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE1    -10.099840443308311
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE2    -11.957215807230671
+Sigmoid Node 5
+    Inputs    Weights
+    Threshold    10.182019273489633
+    Attrib FLOW_DURATION    -390.76990016227586
+    Attrib BYTES_SENT_PER_SEC    -152.54622846849625
+    Attrib BYTES_RECV_PER_SEC    -15.304233706918549
+    Attrib MEDIAN_INTERARRIVAL_TIME    -7.095320961604527
+    Attrib AVG_PAYLOAD_SIZE    245.14782339037043
+    Attrib AVG_PAYLOAD_SIZE_SENDING    34.14320764854964
+    Attrib AVG_PAYLOAD_SIZE_RECVING    245.6137087502597
+    Attrib COMPRESSION    75.83570383852624
+    Attrib PRIME_WAVE_MAGNITUDE_PAYLOAD    -10.236924276158897
+    Attrib DFT_PAYLOAD_MAGNITUDE1    -10.03838497501225
+    Attrib DFT_PAYLOAD_MAGNITUDE2    -9.254132657203304
+    Attrib PRIME_WAVE_MAGNITUDE_IAT    -32.47609407524225
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE1    -8.776111475709993
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE2    47.0852197526349
+Sigmoid Node 6
+    Inputs    Weights
+    Threshold    52.85635228145331
+    Attrib FLOW_DURATION    76.06628010591344
+    Attrib BYTES_SENT_PER_SEC    11.455823310271368
+    Attrib BYTES_RECV_PER_SEC    -11.020095526049044
+    Attrib MEDIAN_INTERARRIVAL_TIME    -0.40567983906168775
+    Attrib AVG_PAYLOAD_SIZE    108.89345259350145
+    Attrib AVG_PAYLOAD_SIZE_SENDING    -105.06560861647829
+    Attrib AVG_PAYLOAD_SIZE_RECVING    290.50816627094656
+    Attrib COMPRESSION    -55.80898047807847
+    Attrib PRIME_WAVE_MAGNITUDE_PAYLOAD    -52.17209395167859
+    Attrib DFT_PAYLOAD_MAGNITUDE1    -51.58374084016564
+    Attrib DFT_PAYLOAD_MAGNITUDE2    -52.3938294558068
+    Attrib PRIME_WAVE_MAGNITUDE_IAT    -46.051637936649016
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE1    -11.167785250488025
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE2    -38.118133781380195
+Sigmoid Node 7
+    Inputs    Weights
+    Threshold    78.78680802365064
+    Attrib FLOW_DURATION    94.0741052195368
+    Attrib BYTES_SENT_PER_SEC    29.409161718949434
+    Attrib BYTES_RECV_PER_SEC    61.25583556207073
+    Attrib MEDIAN_INTERARRIVAL_TIME    78.49409110702811
+    Attrib AVG_PAYLOAD_SIZE    207.19793892311444
+    Attrib AVG_PAYLOAD_SIZE_SENDING    217.60844786439557
+    Attrib AVG_PAYLOAD_SIZE_RECVING    -37.53690501395098
+    Attrib COMPRESSION    -111.80883669750824
+    Attrib PRIME_WAVE_MAGNITUDE_PAYLOAD    -77.85991958334
+    Attrib DFT_PAYLOAD_MAGNITUDE1    -77.76105086362908
+    Attrib DFT_PAYLOAD_MAGNITUDE2    -78.80721692976016
+    Attrib PRIME_WAVE_MAGNITUDE_IAT    -63.598210227985895
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE1    -53.559162396370276
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE2    -108.69730770763341
+Sigmoid Node 8
+    Inputs    Weights
+    Threshold    125.67147999910304
+    Attrib FLOW_DURATION    -98.44438906702463
+    Attrib BYTES_SENT_PER_SEC    97.20096814028915
+    Attrib BYTES_RECV_PER_SEC    134.24564807161386
+    Attrib MEDIAN_INTERARRIVAL_TIME    141.09951508993498
+    Attrib AVG_PAYLOAD_SIZE    250.52840192320667
+    Attrib AVG_PAYLOAD_SIZE_SENDING    293.6959352845614
+    Attrib AVG_PAYLOAD_SIZE_RECVING    52.1721658482365
+    Attrib COMPRESSION    -125.0341949631124
+    Attrib PRIME_WAVE_MAGNITUDE_PAYLOAD    -124.31662107910293
+    Attrib DFT_PAYLOAD_MAGNITUDE1    -123.31610990849641
+    Attrib DFT_PAYLOAD_MAGNITUDE2    -125.95678602311173
+    Attrib PRIME_WAVE_MAGNITUDE_IAT    -111.14684683218029
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE1    -77.31019474269664
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE2    -47.19174585702187
+Sigmoid Node 9
+    Inputs    Weights
+    Threshold    104.52376217446505
+    Attrib FLOW_DURATION    99.32400018375861
+    Attrib BYTES_SENT_PER_SEC    -30.926276482697595
+    Attrib BYTES_RECV_PER_SEC    29.010788679187794
+    Attrib MEDIAN_INTERARRIVAL_TIME    30.90793720010127
+    Attrib AVG_PAYLOAD_SIZE    235.71316198408522
+    Attrib AVG_PAYLOAD_SIZE_SENDING    220.36692132433802
+    Attrib AVG_PAYLOAD_SIZE_RECVING    27.252113586083734
+    Attrib COMPRESSION    -131.84281607634992
+    Attrib PRIME_WAVE_MAGNITUDE_PAYLOAD    -103.0193642914806
+    Attrib DFT_PAYLOAD_MAGNITUDE1    -102.11772574990538
+    Attrib DFT_PAYLOAD_MAGNITUDE2    -103.57407097746217
+    Attrib PRIME_WAVE_MAGNITUDE_IAT    -53.992067554725445
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE1    4.335926686365575
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE2    -18.054980660398147
+Sigmoid Node 10
+    Inputs    Weights
+    Threshold    67.78896726630903
+    Attrib FLOW_DURATION    46.6525567766457
+    Attrib BYTES_SENT_PER_SEC    9.300464022256246
+    Attrib BYTES_RECV_PER_SEC    29.605582715556864
+    Attrib MEDIAN_INTERARRIVAL_TIME    70.48109492904304
+    Attrib AVG_PAYLOAD_SIZE    135.44605934272795
+    Attrib AVG_PAYLOAD_SIZE_SENDING    25.63625693379957
+    Attrib AVG_PAYLOAD_SIZE_RECVING    75.73321406770633
+    Attrib COMPRESSION    -78.56293315977938
+    Attrib PRIME_WAVE_MAGNITUDE_PAYLOAD    -67.34457295179311
+    Attrib DFT_PAYLOAD_MAGNITUDE1    -67.54721943458237
+    Attrib DFT_PAYLOAD_MAGNITUDE2    -68.0015634242773
+    Attrib PRIME_WAVE_MAGNITUDE_IAT    -79.77524780458427
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE1    27.632512906385525
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE2    12.578711335505828
+Sigmoid Node 11
+    Inputs    Weights
+    Threshold    78.2542079595691
+    Attrib FLOW_DURATION    15.263270897105967
+    Attrib BYTES_SENT_PER_SEC    23.037711696425568
+    Attrib BYTES_RECV_PER_SEC    45.801143025421986
+    Attrib MEDIAN_INTERARRIVAL_TIME    88.45747166627281
+    Attrib AVG_PAYLOAD_SIZE    187.68995412090206
+    Attrib AVG_PAYLOAD_SIZE_SENDING    3.9897558464170118
+    Attrib AVG_PAYLOAD_SIZE_RECVING    78.85006608638274
+    Attrib COMPRESSION    -91.38347535650006
+    Attrib PRIME_WAVE_MAGNITUDE_PAYLOAD    -77.92852853602182
+    Attrib DFT_PAYLOAD_MAGNITUDE1    -78.14262449145951
+    Attrib DFT_PAYLOAD_MAGNITUDE2    -78.51863129497077
+    Attrib PRIME_WAVE_MAGNITUDE_IAT    -92.8398287792561
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE1    34.67515214819626
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE2    22.21695893356893
+Sigmoid Node 12
+    Inputs    Weights
+    Threshold    15.389733527658512
+    Attrib FLOW_DURATION    60.52646697675325
+    Attrib BYTES_SENT_PER_SEC    28.15690520273755
+    Attrib BYTES_RECV_PER_SEC    36.978089682477794
+    Attrib MEDIAN_INTERARRIVAL_TIME    -8.8458364974743
+    Attrib AVG_PAYLOAD_SIZE    86.72630673208069
+    Attrib AVG_PAYLOAD_SIZE_SENDING    106.73241867671321
+    Attrib AVG_PAYLOAD_SIZE_RECVING    65.14041756428219
+    Attrib COMPRESSION    -169.31533961614846
+    Attrib PRIME_WAVE_MAGNITUDE_PAYLOAD    -15.047388881241682
+    Attrib DFT_PAYLOAD_MAGNITUDE1    -15.108983968255759
+    Attrib DFT_PAYLOAD_MAGNITUDE2    -15.378502810573035
+    Attrib PRIME_WAVE_MAGNITUDE_IAT    -4.569624587134298
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE1    -66.65708836985736
+    Attrib DFT_INTERARRIVAL_TIME_MAGNITUDE2    -55.38135848019587
+Class ZEUS
+    Input
+    Node 0
+Class CLEAN
+    Input
+    Node 1
+Class WALEDAC
+    Input
+    Node 2
+Class STORM
+    Input
+    Node 3
+
+
+Time taken to build model: 773.24 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on training split: 0.57 seconds
+
+=== Summary ===
+
+Correctly Classified Instances      109908               91.6641 %
+Incorrectly Classified Instances      9995                8.3359 %
+Kappa statistic                          0.7693
+Mean absolute error                      0.057 
+Root mean squared error                  0.1758
+Relative absolute error                 32.6308 %
+Root relative squared error             59.5651 %
+Coverage of cases (0.95 level)          98.0359 %
+Mean rel. region size (0.95 level)      32.7496 %
+Total Number of Instances           119903     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.361    0.000    0.894      0.361    0.514      0.566    0.693     0.450     ZEUS
+                 0.942    0.133    0.965      0.942    0.953      0.783    0.950     0.981     CLEAN
+                 0.891    0.043    0.691      0.891    0.778      0.758    0.983     0.808     WALEDAC
+                 0.783    0.019    0.823      0.783    0.802      0.782    0.936     0.846     STORM
+Weighted Avg.    0.917    0.112    0.923      0.917    0.918      0.779    0.950     0.947     
+
+=== Confusion Matrix ===
+
+     a     b     c     d   <-- classified as
+   330   580     2     3 |     a = ZEUS
+    39 89781  4382  1127 |     b = CLEAN
+     0   400 10469   883 |     c = WALEDAC
+     0  2278   301  9328 |     d = STORM
+
+********************************************************************************************************************
+=== Run information ===
+
+Scheme:       weka.classifiers.lazy.IBk -K 4 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     ConversationRelation-weka.filters.unsupervised.attribute.Remove-R1-5,7-12,16-26,30-32,35,37,39-57,59,61,63-81
+Instances:    352657
+Attributes:   15
+              FLOW_DURATION
+              BYTES_SENT_PER_SEC
+              BYTES_RECV_PER_SEC
+              MEDIAN_INTERARRIVAL_TIME
+              AVG_PAYLOAD_SIZE
+              AVG_PAYLOAD_SIZE_SENDING
+              AVG_PAYLOAD_SIZE_RECVING
+              COMPRESSION
+              PRIME_WAVE_MAGNITUDE_PAYLOAD
+              DFT_PAYLOAD_MAGNITUDE1
+              DFT_PAYLOAD_MAGNITUDE2
+              PRIME_WAVE_MAGNITUDE_IAT
+              DFT_INTERARRIVAL_TIME_MAGNITUDE1
+              DFT_INTERARRIVAL_TIME_MAGNITUDE2
+              LABEL
+Test mode:    split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+IB1 instance-based classifier
+using 4 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.05 seconds
+
+=== Evaluation on test split ===
+
+Time taken to test model on training split: 4391.36 seconds
+
+=== Summary ===
+
+Correctly Classified Instances      119189               99.4045 %
+Incorrectly Classified Instances       714                0.5955 %
+Kappa statistic                          0.9829
+Mean absolute error                      0.0036
+Root mean squared error                  0.0488
+Relative absolute error                  2.0595 %
+Root relative squared error             16.5507 %
+Coverage of cases (0.95 level)          99.7548 %
+Mean rel. region size (0.95 level)      25.3025 %
+Total Number of Instances           119903     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.863    0.001    0.928      0.863    0.895      0.894    0.971     0.896     ZEUS
+                 0.997    0.016    0.996      0.997    0.996      0.982    0.997     0.999     CLEAN
+                 0.987    0.002    0.986      0.987    0.986      0.985    0.998     0.989     WALEDAC
+                 0.988    0.001    0.992      0.988    0.990      0.989    0.998     0.993     STORM
+Weighted Avg.    0.994    0.013    0.994      0.994    0.994      0.983    0.997     0.996     
+
+=== Confusion Matrix ===
+
+     a     b     c     d   <-- classified as
+   790   122     3     0 |     a = ZEUS
+    61 95037   136    95 |     b = CLEAN
+     0   152 11598     2 |     c = WALEDAC
+     0   117    26 11764 |     d = STORM
+
+

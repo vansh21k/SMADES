@@ -1,0 +1,65 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.EnsembleSelection -W /home/bits/Ensemble-3 -P rmse -A forward -B 10 -V 0.25 -E 0.5 -H 100 -I 1.0 -X 1 -R -G -S 1
+Relation:     ConversationRelation-weka.filters.unsupervised.attribute.Remove-R1-5,7-12,16-26,30-32,35,37,39-57,59,61,63-81
+Instances:    686058
+Attributes:   15
+              FLOW_DURATION
+              BYTES_SENT_PER_SEC
+              BYTES_RECV_PER_SEC
+              MEDIAN_INTERARRIVAL_TIME
+              AVG_PAYLOAD_SIZE
+              AVG_PAYLOAD_SIZE_SENDING
+              AVG_PAYLOAD_SIZE_RECVING
+              COMPRESSION
+              PRIME_WAVE_MAGNITUDE_PAYLOAD
+              DFT_PAYLOAD_MAGNITUDE1
+              DFT_PAYLOAD_MAGNITUDE2
+              PRIME_WAVE_MAGNITUDE_IAT
+              DFT_INTERARRIVAL_TIME_MAGNITUDE1
+              DFT_INTERARRIVAL_TIME_MAGNITUDE2
+              LABEL
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+304 weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+303 weka.classifiers.functions.SimpleLogistic -I 0 -M 500 -H 50 -W 0.0
+8 weka.classifiers.trees.J48 -C 0.25 -M 2
+9 weka.classifiers.trees.REPTree -M 2 -V 0.001 -N 3 -S 1 -L 8 -I 0.0
+
+
+Time taken to build model: 1601.87 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances      684619               99.7903 %
+Incorrectly Classified Instances      1439                0.2097 %
+Kappa statistic                          0.9934
+Mean absolute error                      0.0065
+Root mean squared error                  0.0313
+Relative absolute error                  4.0824 %
+Root relative squared error             11.1075 %
+Coverage of cases (0.95 level)          99.9589 %
+Mean rel. region size (0.95 level)      26.76   %
+Total Number of Instances           686058     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.868    0.000    0.981      0.868    0.921      0.923    0.996     0.959     ZEUS
+                 0.999    0.005    0.999      0.999    0.999      0.993    1.000     1.000     CLEAN
+                 0.996    0.001    0.987      0.996    0.991      0.991    1.000     0.998     WALEDAC
+                 0.998    0.000    0.999      0.998    0.999      0.998    1.000     0.999     STORM
+Weighted Avg.    0.998    0.004    0.998      0.998    0.998      0.993    1.000     1.000     
+
+=== Confusion Matrix ===
+
+      a      b      c      d   <-- classified as
+   2307    346      4      0 |      a = ZEUS
+     41 559266    624     69 |      b = CLEAN
+      4    204  48184      9 |      c = WALEDAC
+      0    128     10  74862 |      d = STORM
+
+
